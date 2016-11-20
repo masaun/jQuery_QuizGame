@@ -18,7 +18,7 @@
       // dim * dimのspan要素を作って#cellsに代入
       var cells = '';
       for (var i = 1; i <= dim * dim; i++) {
-        cells += '<span id="s'+ i +"></span>';
+        cells += '<span id="s'+ i +'"></span>';
         if (i % dim == 0)
           cells += '<br />';
         }
@@ -26,8 +26,16 @@
       $('#cells').html(cells);
 
       // dummyで埋められた配列を作る
+      var chars = [];
+      for (var i = 0; i < dim * dim; i++) {
+        chars.push(dummy);
+      }
 
       // 配列のうち一つをseikaiにする
+      var offset = Math.floor(Math.random() * chars.length);
+      chars.splice(offset, 1, seikai);
+
+      console.log(chars);
 
       // span要素にそれらの配列の値をはめ込む
     }
