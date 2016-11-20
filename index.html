@@ -15,7 +15,15 @@
       var seikai = '真';
       var dim = 5;
 
-      // dim * dimのspan要素を作って#cellsに突っ込む
+      // dim * dimのspan要素を作って#cellsに代入
+      var cells = '';
+      for (var i = 1; i <= dim * dim; i++) {
+        cells += '<span id="s'+ i +"></span>';
+        if (i % dim == 0)
+          cells += '<br />';
+        }
+      }
+      $('#cells').html(cells);
 
       // dummyで埋められた配列を作る
 
