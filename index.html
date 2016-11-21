@@ -15,6 +15,14 @@
   <p><input type="button" value="開始" onclick="gameStart();"></p>
   <div id="cells"></div>
   <script>
+  var level = 0;
+  var games = [
+    ['偽', '疑'],
+    ['大', '太'],
+    ['白', '口']
+  ];
+  var dim = 5;
+
     function gameStart() {
       var dummy = '偽';
       var seikai = '真';
