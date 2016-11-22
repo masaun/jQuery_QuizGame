@@ -55,7 +55,12 @@
         $('#s'+i).text(chars[i - 1]);
         $('#s'+i).click(function() {
           if ($(this).text() == seikai) {
-            alert("正解");
+            // レベルを一つずつ上げる
+            level++;
+            if (level > MAX_LEVEL) {
+              alert("ゲームオーバー");
+            }
+            gameStart();
           }
         });
       }
