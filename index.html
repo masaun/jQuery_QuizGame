@@ -21,7 +21,12 @@
     ['大', '太'],
     ['白', '口']
   ];
-  var dim = 5;
+
+  // 宣言する
+  var MAX_LEVEL = games.length - 1;
+  var DIM_FIRST = 5;
+  var DIM_DELTA = 3;
+  var dim = DIM_FIRST;
   // 開始時間と終了時間を定義
   var t1;
   var t2;
@@ -35,7 +40,6 @@
         t1 = new Date().getTime();
       }
 
-      
       // dim * dimのspan要素を作って#cellsに代入
       var cells = '';
       for (var i = 1; i <= dim * dim; i++) {
@@ -65,10 +69,12 @@
           if ($(this).text() == seikai) {
             // レベルを一つずつ上げる
             level++;
+            dim += DIM_DELTA;
             if (level > MAX_LEVEL) {
               t2 = new Date().getTime();
               $('#score').text("'あなたのスコアは'+(2t-1t)/1000+'");
               level = 0;
+              dim = DIM_FIRST;
               return false;
             }
             gameStart();
